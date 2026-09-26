@@ -1,0 +1,121 @@
+# =========================================================
+#  MiniEventos - configuracao
+#  Edite os valores abaixo. A maioria dos LOCAIS (spawns)
+#  e definida em jogo com o comando /eventoadmin, nao aqui.
+# =========================================================
+
+# Nome do mundo dedicado ao evento. Deve existir antes de o
+# plugin iniciar uma rodada (crie com Multiverse ou manualmente
+# e ajuste aqui, ou use "/eventoadmin setmundo <nome>").
+mundo-evento: "mundo_eventos"
+
+# Local para onde todo mundo volta: ao final normal do evento,
+# quando um jogador desconecta durante a partida, ou como
+# spawn de respawn quando o jogador nao tem cama valida.
+spawn-principal:
+  definido: false
+  mundo: "world"
+  x: 0.5
+  y: 100.0
+  z: 0.5
+  yaw: 0.0
+  pitch: 0.0
+
+# Intervalo entre rodadas (minutos) e duracao das inscricoes (minutos)
+intervalo-evento-minutos: 60
+tempo-inscricao-minutos: 3
+minimo-jogadores: 2
+
+# ---------------------------------------------------------
+# MODO 1 - SURVIVAL
+# ---------------------------------------------------------
+modo-survival:
+  tempo-pvp-off-minutos: 10
+  tempo-bussola-minutos: 20
+  tempo-arena-final-minutos: 30
+  # Pontos de spawn iniciais no mundo do evento (varios, para espalhar os jogadores).
+  # Adicione com "/eventoadmin addspawn survival"
+  spawns: []
+  # Pontos de spawn da arena final ("arena de Bedrock"). Adicione com
+  # "/eventoadmin addspawn survival_arena"
+  spawns-arena-final: []
+
+# ---------------------------------------------------------
+# MODO 2 - PVP COM KITS
+# ---------------------------------------------------------
+modo-pvpkits:
+  tempo-preparo-segundos: 10
+  borda-tamanho-inicial: 500
+  borda-tamanho-final: 20
+  borda-tempo-encolhimento-segundos: 1200
+  # Pontos de spawn no mundo do evento. Adicione com "/eventoadmin addspawn pvpkits"
+  spawns: []
+  # Itens do kit entregue a todos os participantes antes da batalha.
+  # encantamentos usa NOME_DO_ENCANTAMENTO: nivel (nomes Bukkit, ex: SHARPNESS, PROTECTION_ENVIRONMENTAL)
+  kit:
+    - material: NETHERITE_SWORD
+      quantidade: 1
+      nome: "&cKit PvP - Espada"
+      encantamentos:
+        SHARPNESS: 5
+        UNBREAKING: 3
+    - material: GOLDEN_APPLE
+      quantidade: 8
+    - material: COOKED_BEEF
+      quantidade: 16
+    - material: BOW
+      quantidade: 1
+      encantamentos:
+        POWER: 3
+    - material: ARROW
+      quantidade: 32
+    - material: DIAMOND_HELMET
+      quantidade: 1
+      encantamentos:
+        PROTECTION_ENVIRONMENTAL: 3
+    - material: DIAMOND_CHESTPLATE
+      quantidade: 1
+      encantamentos:
+        PROTECTION_ENVIRONMENTAL: 3
+    - material: DIAMOND_LEGGINGS
+      quantidade: 1
+      encantamentos:
+        PROTECTION_ENVIRONMENTAL: 3
+    - material: DIAMOND_BOOTS
+      quantidade: 1
+      encantamentos:
+        PROTECTION_ENVIRONMENTAL: 3
+
+# ---------------------------------------------------------
+# RECOMPENSA (chave da Eventos Crate)
+# ---------------------------------------------------------
+# Comando executado pelo CONSOLE para entregar a chave ao vencedor.
+# %player% e substituido pelo nome do jogador. Ajuste ao plugin de
+# crates que voce usa (CMI, Crazycrates, ExcellentCrates, etc.)
+recompensa:
+  comando: "crates give %player% Eventos 1"
+
+# Comandos que continuam permitidos mesmo durante o evento
+# (alem dos comandos administrativos do proprio plugin, que
+# sempre sao permitidos para quem tem eventos.admin.bypass)
+comandos-permitidos-durante-evento:
+  - "evento"
+
+# Mensagens (use '&' para cores)
+mensagens:
+  inscricoes-abertas: "&a&l[EVENTO] &fAs inscricoes estao abertas! Use &e/evento &fpara participar. Voce tem &e3 minutos&f."
+  inscricoes-fechadas: "&c&l[EVENTO] &fAs inscricoes foram encerradas!"
+  evento-cancelado: "&c&l[EVENTO] &fA rodada foi cancelada por falta de jogadores."
+  inscrito-com-sucesso: "&a[EVENTO] &fVoce entrou na rodada! Aguarde o inicio."
+  ja-inscrito: "&e[EVENTO] &fVoce ja esta inscrito nessa rodada."
+  inscricoes-encerradas-tentativa: "&c[EVENTO] &fAs inscricoes ja fecharam. Espere a proxima rodada."
+  evento-em-andamento-tentativa: "&c[EVENTO] &fJa existe uma partida em andamento. Espere a proxima rodada."
+  sorteio-modo: "&d&l[EVENTO] &fO modo sorteado foi: &e%modo%"
+  pvp-ativado: "&c&l[EVENTO] &fO PvP foi ativado! Cuidado uns com os outros."
+  bussola-entregue: "&b&l[EVENTO] &fVoce recebeu uma bussola que aponta para o jogador vivo mais proximo!"
+  arena-final: "&6&l[EVENTO] &fVoce foi teleportado para a arena final!"
+  batalha-inicio: "&c&l[EVENTO] &fA batalha comecou! Boa sorte."
+  venceu: "&6&l[EVENTO] &fParabens! Voce venceu o evento e recebeu 1x chave da Eventos Crate!"
+  anuncio-vencedor: "&6&l[EVENTO] &e%player% &fvenceu o mini evento (%modo%) e recebeu 1x chave da Eventos Crate!"
+  comando-bloqueado: "&c[EVENTO] &fComandos estao bloqueados durante o evento."
+  eliminado: "&c[EVENTO] &fVoce foi eliminado do evento."

@@ -1,0 +1,24 @@
+name: MiniEventos
+version: '1.0.0'
+main: com.semianarquia.minieventos.MiniEventosPlugin
+api-version: '1.20'
+author: SemiAnarquia
+description: Sistema de mini eventos automaticos (Survival e PvP com Kits), compativel com Java e Bedrock via Geyser/Floodgate.
+
+commands:
+  evento:
+    description: Entrar na rodada de inscricoes do mini evento
+    usage: /evento
+
+  eventoadmin:
+    description: Administrar o sistema de mini eventos
+    usage: /eventoadmin <subcomando>
+    permission: eventos.admin
+
+permissions:
+  eventos.admin:
+    description: Permite administrar/configurar o sistema de eventos
+    default: false
+  eventos.admin.bypass:
+    description: Permite usar comandos livremente durante uma partida de evento (necessario para quem controla o evento manualmente). NAO e dado a OP por padrao, para que o bloqueio de comandos valha inclusive para OPs.
+    default: false
